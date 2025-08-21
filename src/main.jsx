@@ -1,0 +1,22 @@
+// Polyfills for Node.js compatibility in browser
+if (typeof global === 'undefined') {
+  window.global = window;
+}
+if (typeof process === 'undefined') {
+  window.process = { env: {} };
+}
+
+// Buffer polyfill for simple-peer
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
